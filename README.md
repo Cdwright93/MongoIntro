@@ -43,10 +43,25 @@ db.blogs.find({lastModified:{$exists:true}})
 //find all blogs where the createdAt type is a date
 db.blogs.find({createdAt:{$type:"date"}})
 
+MORE QUERIES ##################
+//Find all blogs in which the lastModified does not exist and set it ###DONE PREIVOUSLY IN ABOVE CODE
+
+### From now on, all the following queries should update lastModified to be the current datetime
+
+//Find all blogs created after May 2022 and add "lorem" as a new category in the categories array
+
+db.blogs.updateMany({createdAt:{$gt:new Date("May 1, 2022")}},{$push:{categories:"lorem"},$set:{lastModified:new Date()}})
+
+//Find all blogs that have the category "voluptas" and pull "voluptas" from the categories
+db.blogs.updateMany({categories:"voluptas"},{$pull:{categories:"voluptas"},$set:{lastModified:new Date()}})
+
+//Find all blogs with "corrupti" in the categories and delete those blogs
+db.blogs.deleteMany({categories:"corrupti"})
+
 - Stretch ##completed
-- Find a blog with a specific phrase in the text
+  //Find a blog with a specific phrase in the text
   db.blogs.find({text:{$regex:"phrase"}})
-- Find all blogs that have "qui" in the categories array
+//Find all blogs that have "qui" in the categories array
   db.blogs.find({categories:{$regex:"qui"}})
 
 //what is "regex"?
