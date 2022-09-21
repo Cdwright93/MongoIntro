@@ -15,3 +15,9 @@ db.blogs.insertMany({
 "ObjectId":{Number}
 ]
 })
+//modify the  blog data to change the way it is being stored
+
+db.blogs.updateMany({},{$set:{"categories":[]}})
+db.blogs.updateMany({},{$set:{"ObjectId":ObjectId()}})
+db.blogs.updateMany({},{$set:{"createdAt":new Date()}})
+db.blogs.updateMany({},{$set:{"lastModified":new Date()}})
