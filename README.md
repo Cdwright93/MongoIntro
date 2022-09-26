@@ -220,10 +220,8 @@ const deletePost = (id) => {
 db.blogs.deleteOne({ `_id: id` })
 }
 
-const postIdToDelete = ""
-
 // Uncomment the following line when you're ready to run deletePost
-// deletePost(postIdToDelete)
+// deletePost(id)
 
 /\*
 Requirements:
